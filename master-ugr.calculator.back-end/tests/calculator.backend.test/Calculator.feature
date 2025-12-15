@@ -27,9 +27,3 @@ Scenario: Division of two numbers returning non integer value
 	And the second number is 4
 	When I divide first number by second number
 	Then the result is 2.5
-
-Scenario: Square root of a number returning non integer value
-	Given the first number is 10
-	And the second number is not used
-	When I make the square root of the first number
-	Then the result is 3.1622776601683795

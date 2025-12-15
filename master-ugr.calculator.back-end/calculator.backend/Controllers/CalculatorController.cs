@@ -49,12 +49,5 @@ namespace CalculatorAPI.Controllers
             var is_odd = NumberAttributter.IsOdd(number);
             return Ok(new { odd = is_odd, prime = is_prime });
         }
-
-        [HttpGet("SQRT")]
-        public ActionResult<double> SQRT([FromQuery] double number)
-        {
-            var sqrt_result = SquareRoot.SQRT((double)number);
-            return Ok(new { result = sqrt_result });
-        }
     }
 }
