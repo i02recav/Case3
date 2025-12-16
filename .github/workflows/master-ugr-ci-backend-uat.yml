@@ -64,12 +64,7 @@ jobs:
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-        publish-profile: |
-        <publishData>
-          <publishProfile profileName="i02recav-calculator-backend-uat - Web Deploy" publishMethod="MSDeploy" publishUrl="i02recav-calculator-backend-uat.scm.azurewebsites.net:443" msdeploySite="i02recav-calculator-backend-uat" userName="$i02recav-calculator-backend-uat" userPWD="5cXazyBSF7MehXkgZpMejqeoRv5P1dbzLs89kna3r09xkYSpCWt4iJbhBfjb" destinationAppUrl="https://i02recav-calculator-backend-uat.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="i02recav-calculator-backend-uat - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-esc-001.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="i02recav-calculator-backend-uat\$i02recav-calculator-backend-uat" userPWD="5cXazyBSF7MehXkgZpMejqeoRv5P1dbzLs89kna3r09xkYSpCWt4iJbhBfjb" destinationAppUrl="https://i02recav-calculator-backend-uat.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="i02recav-calculator-backend-uat - Zip Deploy" publishMethod="ZipDeploy" publishUrl="i02recav-calculator-backend-uat.scm.azurewebsites.net:443" userName="$i02recav-calculator-backend-uat" userPWD="5cXazyBSF7MehXkgZpMejqeoRv5P1dbzLs89kna3r09xkYSpCWt4iJbhBfjb" destinationAppUrl="https://i02recav-calculator-backend-uat.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites">
-            <databases />
-          </publishProfile>
-        </publishData>
+        publish-profile: '<publishData><publishProfile profileName="i02recav-calculator-backend-uat - Web Deploy" publishMethod="MSDeploy" publishUrl="i02recav-calculator-backend-uat.scm.azurewebsites.net:443" msdeploySite="i02recav-calculator-backend-uat" userName="$i02recav-calculator-backend-uat" userPWD="5cXazyBSF7MehXkgZpMejqeoRv5P1dbzLs89kna3r09xkYSpCWt4iJbhBfjb" destinationAppUrl="https://i02recav-calculator-backend-uat.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="i02recav-calculator-backend-uat - FTP" publishMethod="FTP" publishUrl="ftps://waws-prod-esc-001.ftp.azurewebsites.windows.net/site/wwwroot" ftpPassiveMode="True" userName="i02recav-calculator-backend-uat\$i02recav-calculator-backend-uat" userPWD="5cXazyBSF7MehXkgZpMejqeoRv5P1dbzLs89kna3r09xkYSpCWt4iJbhBfjb" destinationAppUrl="https://i02recav-calculator-backend-uat.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile><publishProfile profileName="i02recav-calculator-backend-uat - Zip Deploy" publishMethod="ZipDeploy" publishUrl="i02recav-calculator-backend-uat.scm.azurewebsites.net:443" userName="$i02recav-calculator-backend-uat" userPWD="5cXazyBSF7MehXkgZpMejqeoRv5P1dbzLs89kna3r09xkYSpCWt4iJbhBfjb" destinationAppUrl="https://i02recav-calculator-backend-uat.azurewebsites.net" SQLServerDBConnectionString="" mySQLDBConnectionString="" hostingProviderForumLink="" controlPanelLink="https://portal.azure.com" webSystem="WebSites"><databases /></publishProfile></publishData>'
         
       # Deploy the application to the specified Azure Web App
   test:
@@ -88,6 +83,7 @@ jobs:
         run: dotnet test ${{ env.TEST_PATH }}
  
     
+
 
 
 
