@@ -14,8 +14,8 @@ namespace calculator.frontend.Controllers
         // "https://master-ugr-ci-backend-uat.azurewebsites.net";
         private string base_url =
             Environment.GetEnvironmentVariable("CALCULATOR_BACKEND_URL") ??
-          //  "https://i02recav-ugr-ci-backend-uat.azurewebsites.net";
-          "https://localhost:7012";
+            "https://i02recav-ugr-ci-backend-uat.azurewebsites.net";
+         // "https://localhost:7012";
         const string api = "api/Calculator";
         private double ExecuteOperation( double num1)
         {
