@@ -1,0 +1,41 @@
+name: Desplegar a Azure Web App
+
+on:
+  push:
+    branches:
+      - main  # Se ejecuta cuando haces push a la rama main
+
+env:
+  AZURE_WEBAPP_NAME: i02recav-calculator-backend    # Tu nombre de app en Azure
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # Ruta a tu código ('.' es la raíz)
+  DOTNET_VERSION: '8.0.x'             # Ajusta esto a tu versión de .NET (ej. 6.0.x, 7.0.x, 8.0.x)
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Bajar el código del repositorio
+      - uses: actions/checkout@v4
+
+      # 2. Configurar el entorno de .NET
+      - name: Configurar .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      # 3. Compilar la solución (Build)
+      - name: Compilar con dotnet
+        run: dotnet build --configuration Release
+
+      # 4. Publicar los archivos listos para despliegue (Publish)
+      - name: Publicar dotnet
+        run: dotnet publish -c Release -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp
+
+      # 5. Desplegar a Azure usando el perfil de publicación
+      - name: Desplegar a Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
