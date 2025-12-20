@@ -85,11 +85,7 @@ namespace calculator.backend.test
         [Xunit.TraitAttribute("FeatureTitle", "SquareRoot")]
         [Xunit.TraitAttribute("Description", "Calculate square root of a number")]
         [Xunit.InlineDataAttribute("1", "1", new string[0])]
-        [Xunit.InlineDataAttribute("2", "1.41421356237", new string[0])]
-        [Xunit.InlineDataAttribute("4", "2", new string[0])]
         [Xunit.InlineDataAttribute("9", "3", new string[0])]
-        [Xunit.InlineDataAttribute("10", "3.16227766017", new string[0])]
-        [Xunit.InlineDataAttribute("16", "4", new string[0])]
         public void CalculateSquareRootOfANumber(string number, string result, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

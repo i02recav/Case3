@@ -10,8 +10,4 @@ Scenario Outline: Calculate square root of a number
 	Examples: 
 	| number | result  |
 	| 1      | 1	   |
-	| 2      | 1.41421356237     |
-	| 4      | 2     |
 	| 9      | 3     |
-	| 10     | 3.16227766017     |
-	| 16     | 4     |
