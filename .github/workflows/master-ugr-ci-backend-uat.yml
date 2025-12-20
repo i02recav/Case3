@@ -64,23 +64,23 @@ jobs:
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.MASTER_UGR_CI_BACKEND_UAT_SPN }}
-        
-      # Deploy the application to the specified Azure Web App
-# test:
-#    runs-on: ubuntu-latest
-#    needs: deploy
- #   steps:
- #     - uses: actions/checkout@v4
-  #      # Checkout the repository (each job runs in a fresh VM)
+        publish-profile: ${{ secrets.MASTER_UGR_CI_BACKEND_UAT_SPN }}   
+
+# Deploy the application to the specified Azure Web App
+  test:
+    runs-on: ubuntu-latest
+    needs: deploy
+    steps:
+     - uses: actions/checkout@v4
+    # Checkout the repository (each job runs in a fresh VM)
   
-   #   - name: Setup .NET SDK
-   #     uses: actions/setup-dotnet@v4
-   #     with:
-   #       dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
-        # Setup the .NET SDK version specified in the environment variables
-  #    - name: run tests
-  #      run: dotnet test ${{ env.TEST_PATH }}
+     - name: Setup .NET SDK
+       uses: actions/setup-dotnet@v4
+       with:
+          dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
+       # Setup the .NET SDK version specified in the environment variables
+     - name: run tests
+       run: dotnet test ${{ env.TEST_PATH }}
     
 
 
