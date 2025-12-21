@@ -34,7 +34,12 @@ namespace CalculatorAPI.Controllers
             var final_result = Calculator.Divide((int)a, (int)b);
             return Ok(new { result = final_result });
         }
-
+        [HttpGet("SQRT")]
+        public ActionResult<double> SQRT([FromQuery] double a)
+        {
+            var final_result = SquareRoot.SQRT((double)a);
+            return Ok(new { result = final_result });
+        }
         [HttpGet("is_prime")]
         public ActionResult<bool> IsPrime([FromQuery] int number)
         {

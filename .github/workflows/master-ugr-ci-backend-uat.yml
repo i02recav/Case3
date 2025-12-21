@@ -9,7 +9,7 @@ on:
 
 env:
   # Environment variables for the workflow
-  AZURE_WEBAPP_NAME: master-ugr-ci-backend-uat
+  AZURE_WEBAPP_NAME: i02recav-calculator-backend-uat
   AZURE_WEBAPP_PACKAGE_PATH: master-ugr.calculator.back-end/calculator.backend/publish
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 8.0.x
@@ -64,25 +64,34 @@ jobs:
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
         package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
-        publish-profile: ${{ secrets.MASTER_UGR_CI_BACKEND_UAT_SPN }}
-        
-      # Deploy the application to the specified Azure Web App
+        publish-profile: ${{ secrets.MASTER_UGR_CI_BACKEND_UAT_SPN }}   
+
+# Deploy the application to the specified Azure Web App
   test:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
-      - uses: actions/checkout@v4
-        # Checkout the repository (each job runs in a fresh VM)
+     - uses: actions/checkout@v4
+    # Checkout the repository (each job runs in a fresh VM)
   
-      - name: Setup .NET SDK
-        uses: actions/setup-dotnet@v4
-        with:
+     - name: Setup .NET SDK
+       uses: actions/setup-dotnet@v4
+       with:
           dotnet-version: ${{ env.DOTNET_CORE_VERSION }}
-        # Setup the .NET SDK version specified in the environment variables
-      - name: run tests
-        run: dotnet test ${{ env.TEST_PATH }}
- 
+       # Setup the .NET SDK version specified in the environment variables
+     - name: run tests
+       run: dotnet test ${{ env.TEST_PATH }}
     
+
+
+
+
+
+
+
+
+
+
 
 
 
