@@ -9,6 +9,7 @@ on:
   pull_request:
     branches:
     - dev
+    - feature-SQRT
 
 env:
   # Environment variables for the workflow
