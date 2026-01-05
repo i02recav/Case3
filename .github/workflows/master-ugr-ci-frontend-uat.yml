@@ -9,13 +9,13 @@ on:
 
 env:
   # Environment variables for the workflow
-  AZURE_WEBAPP_NAME: master-ugr-ci-frontend-uat
+  AZURE_WEBAPP_NAME: i02recav-calculator-frontend-uat
   AZURE_WEBAPP_PACKAGE_PATH: master-ugr.calculator.front-end/calculator.frontend/publish
   CONFIGURATION: Release
   DOTNET_CORE_VERSION: 8.0.x
   WORKING_DIRECTORY: master-ugr.calculator.front-end/calculator.frontend
   TEST_PATH: master-ugr.calculator.front-end/tests/calculator.frontend.tests
-  CALCULATOR_FRONTEND_URL: https://i02recav-calculator-frontend-uat.azurewebsites.net
+  CALCULATOR_FRONTEND_URL: https://i02recav-calculator-frontend-uat.azurewebsites.net/
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -72,7 +72,7 @@ jobs:
     needs: deploy
     steps:
       - uses: actions/checkout@v4
-        # Checkout the repository (each job runs in a fresh VM)
+    # Checkout the repository (each job runs in a fresh VM)
   
       - name: Setup .NET SDK
         uses: actions/setup-dotnet@v4
@@ -87,6 +87,3 @@ jobs:
         # Run tests
         run: dotnet test ${{ env.TEST_PATH }}
  
-    
-
-

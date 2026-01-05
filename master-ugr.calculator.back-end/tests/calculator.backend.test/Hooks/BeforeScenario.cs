@@ -14,6 +14,7 @@ namespace calculator.backend.test.Hooks
         [BeforeScenario]
         public void ScenarioPreparation(ScenarioContext scenarioContext)
         {
+            // test ruleset
             // Getting url from environment variable
             // When not present, default to https://localhost:7012/
             var urlBase =

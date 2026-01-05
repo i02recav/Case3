@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "SquareRoot";
+}
+
+<h2>SquareRoot</h2>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <label for="firstNumber">Enter Number:</label>
+        <input type="text" id="firstNumber" name="firstNumber" />
+    </div>
+    <div>
+        <input type="submit" value="Calculate" id="Calculate" />
+    </div>    
+}
+
+
+@if (ViewBag.Result != null)
+{
+    <div>
+        <h3>Result:<div id="result"> @ViewBag.Result</div></h3>
+    </div>
+}

@@ -7,6 +7,7 @@ on:
     branches:
     - main
 
+
 env:
     # Front-end Domain    
     AZURE_WEBAPP_NAME_FRONTEND_UAT: master-ugr-ci-frontend-uat
