@@ -1,0 +1,6 @@
+FROM alpine:3.20
+
+WORKDIR /app
+RUN echo "Deploy simulado a STAGING usando Docker" > deploy.txt
+
+CMD ["sh", "-c", "cat deploy.txt && echo ' Docker CD ejecutado correctamente'"]
